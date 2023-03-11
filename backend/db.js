@@ -20,17 +20,21 @@ export default class DB {
 
     queryById(id) {
         // TODO: Implement queryById
-        return collection.findOne({"_id": ObjectId(id)})
+        let f = {_id : new ObjectId(id)}
+        return collection.findOne(f)
     }
 
     update(id, order) {
         // TODO: Implement update
-        return collection.updateOne({"_id": ObjectId(id)},{})
+        let u = {_id : new ObjectId(id)}
+        let data
+        return collection.updateOne(u,data)
     }
 
     delete(id) {
         // TODO: Implement delete
-        return collection.deleteOne({"_id": ObjectId(id)})
+        let d = {_id : new ObjectId(id)} 
+        return collection.deleteOne(d)
     }
 
     insert(order) {
