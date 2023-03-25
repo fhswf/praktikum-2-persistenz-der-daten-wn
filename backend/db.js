@@ -27,7 +27,13 @@ export default class DB {
     update(id, order) {
         // TODO: Implement update
         let u = {_id : new ObjectId(id)}
-        let data
+        let data = {
+            $set: {
+                title: "${order.title}",
+                due: "${order.due}",
+                status: "${order.status}"
+            }
+        }
         return collection.updateOne(u,data)
     }
 
@@ -39,5 +45,13 @@ export default class DB {
 
     insert(order) {
         // TODO: Implement insert
+        let data = {
+            $set: {
+                title: "${order.title}",
+                due: "${order.due}",
+                status: "${order.status}"
+            }
+        }
+        return collection.insertOne(data)
     }
 }
